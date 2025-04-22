@@ -27,4 +27,5 @@ void loop() {
     digitalWrite(redLed, HIGH);
     Serial.println("Light is not optimal");
   }
+delay(1000);
 }
