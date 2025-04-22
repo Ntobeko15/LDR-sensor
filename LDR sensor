@@ -1,0 +1,30 @@
+const int ldrPin = 2;
+const int greenLed = 13;
+const int redLed = 12;
+
+void setup() {
+  // put your setup code here, to run once:
+  pinMode(greenLed, OUTPUT);
+  pinMode(redLed, OUTPUT);
+  pinMode(ldrPin, INPUT);
+  Serial.begin(9600);
+}
+
+void loop() {
+  // put your main code here, to run repeatedly:
+  int ldrValue = analogRead(ldrPin);
+
+  Serial.println(ldrValue);
+
+  if(ldrValue < 2000){
+    digitalWrite(greenLed, HIGH);
+    digitalWrite(redLed, LOW);
+    Serial.println("Light is optimal");
+  }
+  
+  else if(ldrValue > 2000){
+    digitalWrite(greenLed, LOW);
+    digitalWrite(redLed, HIGH);
+    Serial.println("Light is not optimal");
+  }
+}
